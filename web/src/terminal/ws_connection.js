@@ -1,5 +1,5 @@
 // web/src/terminal/ws_connection.js
-import { encode, decode, decodeMulti } from "https://cdn.jsdelivr.net/npm/@msgpack/msgpack@3.1.3/dist.esm/index.mjs"; // NEW IMPORT
+import { encode, decode, decodeMulti } from "/web/src/lib.js";
 
 function setupWebSocket(url, terminalInstance, onMessageCallback) {
   const ws = new WebSocket(url);
@@ -36,8 +36,14 @@ function setupWebSocket(url, terminalInstance, onMessageCallback) {
         if (unpacked && unpacked.body !== undefined) {
           onMessageCallback(unpacked.body);
         } else {
-            console.warn("Received MessagePack object without a 'body' field:", unpacked);
-            terminalInstance.println(`Received malformed message: ${JSON.stringify(unpacked)}`, 'yellow');
+          console.warn(
+            "Received MessagePack object without a 'body' field:",
+            unpacked,
+          );
+          terminalInstance.println(
+            `Received malformed message: ${JSON.stringify(unpacked)}`,
+            "yellow",
+          );
         }
       }
     } catch (e) {
@@ -100,3 +106,4 @@ export function connectAndProvideSend(url, terminalInstance) {
 
   return sendFunction;
 }
+
