@@ -1,1 +1,1 @@
-import "./src/terminal/mod.js";
+import "/src/terminal/mod.js";

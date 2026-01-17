@@ -1,9 +1,17 @@
 <!doctype html>
 <html>
   <head>
-    <base href="/web/">
+    <base href="/web/" />
     <title>WSS Terminal</title>
     <link rel="stylesheet" href="./main.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "/": "/",
+          "/src/": "./src/"
+        }
+      }
+    </script>
   </head>
   <body>
     <wss-terminal></wss-terminal>

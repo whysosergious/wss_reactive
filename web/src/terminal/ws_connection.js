@@ -1,5 +1,5 @@
 // web/src/terminal/ws_connection.js
-import { encode, decode, decodeMulti } from "/web/src/lib.js";
+import { encode, decode, decodeMulti } from "/src/lib.js";
 
 function setupWebSocket(url, terminalInstance, onMessageCallback) {
   const ws = new WebSocket(url);
@@ -106,4 +106,3 @@ export function connectAndProvideSend(url, terminalInstance) {
 
   return sendFunction;
 }
-
